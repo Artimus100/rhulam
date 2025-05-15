@@ -1,6 +1,7 @@
 "use client";
 import { ThemeProvider } from './components/ThemeProvider';
 import { Github, Linkedin, Mail, Twitter, Home, FileText, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
 function App() {
   return (
@@ -12,6 +13,11 @@ function App() {
           {/* Header Section */}
           <header className="mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Rahul Mishra</h1>
+    <Link href="/blogs">
+      <button className="mt-4 px-4 py-2 bg-white text-black font-semibold rounded hover:bg-gray-200 transition">
+        Read My Blogs
+      </button>
+    </Link>
           </header>
 
           {/* Two Column Layout for Main Content */}
