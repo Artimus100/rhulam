@@ -58,7 +58,7 @@ function App() {
             <div className="flex justify-center items-start lg:justify-end">
   <div className="rounded-2xl overflow-hidden w-96 h-96 shadow-lg">
     <img 
-      src="./rahul-profile.png"
+      src="./new_img.jpg"
       alt="Rahul Mishra"
       className="w-full h-full object-cover"
     />
