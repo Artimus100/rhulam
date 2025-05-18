@@ -2,7 +2,6 @@
 import { ThemeProvider } from './components/ThemeProvider';
 import { Github, Linkedin, Mail, Twitter, Home, FileText, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
-
 function App() {
   return (
     <ThemeProvider defaultTheme="dark">
@@ -56,15 +55,16 @@ function App() {
             </div>
             
             {/* Right Column - Profile Image */}
-            {/* <div className="flex justify-end">
-              <div className="rounded-2xl overflow-hidden w-full max-w-md">
-                <img 
-                  src="/api/placeholder/500/600" 
-                  alt="Rahul profile" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div> */}
+            <div className="flex justify-center items-start lg:justify-end">
+  <div className="rounded-2xl overflow-hidden w-96 h-96 shadow-lg">
+    <img 
+      src="./rahul-profile.png"
+      alt="Rahul Mishra"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
+
           </div>
 
           {/* Professional Highlights Section */}
