@@ -12,11 +12,16 @@ function App() {
           {/* Header Section */}
           <header className="mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Rahul Mishra</h1>
-    <Link href="/blogs">
-      <button className="mt-4 px-4 py-2 bg-white text-black font-semibold rounded hover:bg-gray-200 transition">
-        Read My Blogs
-      </button>
-    </Link>
+  <Link href="/blogs">
+    <button className="px-4 py-2 bg-white text-black font-semibold rounded hover:bg-gray-200 transition">
+      Read My Blogs
+    </button>
+  </Link>
+  <Link href="https://www.notion.so/Rahul-Proof-of-work-1fb5c22c2c7b800eb2d1e3d9b8745d59" target="_blank">
+    <button className="px-4  py-2 bg-white text-black font-semibold rounded hover:bg-gray-200 transition border-5">
+      🌱 Explore My Proof of Work & Vision
+    </button>
+  </Link>
           </header>
 
           {/* Two Column Layout for Main Content */}
