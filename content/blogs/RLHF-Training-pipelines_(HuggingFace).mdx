@@ -1,0 +1,42 @@
+---
+title: "RLHF Training pipeline using HuggingFace"
+date: "2025-03-18"
+slug: "RLHF-Training-pipelines_(HuggingFace)"
+---
+
+
+Reinforcement learning with human feedback (RLHF), which garnered a lot of limelight recently, has started a new revolution in the application of RL techniques in the field of NLP, especially large language models (LLMs). In this blog, we will learn the complete RLHF training pipeline for an LLM using the Huggingface library.
+---
+### The RLHF pipeline consists of 3 phases:
+
+Domain Specific Pre-Training: Fine-tune a pre-trained LLM on raw text with a Causal Language Modelling Objective.
+Supervised fine-tuning: Fine-tune the domain-specific LLM on task-specific as well as domain-specific (prompt/instruction, response) pairs.
+RLHF
+– Reward model training: Training a language model to classify responses as good or bad (thumbs up, thumbs down)
+– RLHF fine-tuning: Using the reward model training on (prompt, good_response, bad_response) data labeled by human experts to align the responses on the LLM
+
+---
+
+## Domain Specific Pre-training
+Domain-specific pre-training is a step where you provide your language model with domain knowledge of its ultimate application area. This step, where the model is fine-tuned using causal language modeling (next token prediction), is much similar to when a model is trained from scratch on a corpus of raw domain-specific text data. In this case, however, the data required is much less, given that the model is pre-trained on trillions of tokens.
+
+---
+
+## Supervised fine-tuning:
+
+The output of this domain-specific pre-training step is a model that can recognize the context of input text and predict the next words/sentences. This model also resembles a typical sequence-to-sequence model. However, it is not designed to respond to prompts. Performed supervised fine-tuning with prompt-text pairs, is a cost-effective method of injecting domain-specific as well as task-specific knowledge into a pre-trained LLM and having it respond to context-specific questions. This step is also reffered as fine-tuning.
+
+
+---
+
+## Reward Model:
+
+The RLHF training strategy is used to ensure that the LLM is aligned with human preferences and produces better outputs. For this purpose, the reward model is trained to output a score for a (prompt, response) pair. This can be modeled as a simple classification task. The reward model uses data labeled preference by expert human annotators as input. Following is the code for training a reward model.
+
+---
+
+## RLHF fine-tuning (for alignment)
+Finally, in this step, we will train the SFT model from step 1, to generate outputs that maximize the scores of the reward model. Essentially, we will use the reward model to tune the outputs of the supervised model so that it produces human-like responses. Research has shown that in the presence of high-quality preference data, models that undergo RLHF are superior to SFT models. This training is performed using a reinforcement learning method called Proximal Policy Optimization (PPO).
+
+Proximal Policy Optimization is a reinforcement learning algorithm introduced by OpenAI in 2017. Initially being used as one of the top-performing deep reinforcement algorithms for 2D and 3D control problems (video games, Go, 3D locomotion), PPO has now found a place in NLP, specifically in the RLHF pipeline.
+
